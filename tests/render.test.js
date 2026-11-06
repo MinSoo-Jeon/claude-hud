@@ -239,16 +239,16 @@ test('git branchOverflow wrap puts git in its own part', () => {
   assert.deepEqual(lines(ctx({ gitStatus, config }), 15).slice(0, 3), ['[Opus]', 'my-project', 'branch:(main*)']);
 });
 
-test('the mascot is 10 lines, centers the HUD beside it and puts git on its own row', () => {
+test('the mascot is 10 lines, centers the HUD beside it, puts the branch on the project row and the changes on their own row', () => {
   const art = 21 + 2;
   const config = { display: { mascot: true } };
   const out = lines(ctx({ gitStatus, config }));
   assert.equal(out.length, 10);
-  // Four HUD rows: project, context, git, then the changed-files row (here only the untracked count).
+  // Four HUD rows: project and branch, context, the changes, then the changed-files row (here only the untracked count).
   assert.deepEqual(out.map((line) => line.slice(art).trimEnd()).filter(Boolean), [
-    '[Opus] │ my-project',
+    '[Opus] │ my-project │ main*',
     'Context █████░░░░░ 45%',
-    'branch:(main* ↑3 ↓1 [+12 -4])',
+    '↑3 ↓1 [+12 -4]',
     '?3',
   ]);
   assert.equal(lines(ctx({ gitStatus }))[0], '[Opus] │ my-project branch:(main* ↑3 ↓1 [+12 -4])', 'git stays inline without the mascot');
