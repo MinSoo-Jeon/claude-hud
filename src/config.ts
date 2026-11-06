@@ -130,6 +130,7 @@ export interface HudConfig {
     showModel: boolean;
     showProject: boolean;
     showLaunchDir: boolean;
+    mascot: boolean;
     showAddedDirs: boolean;
     addedDirsLayout: AddedDirsLayout;
     showContextBar: boolean;
@@ -232,6 +233,7 @@ export const DEFAULT_CONFIG: HudConfig = {
     showModel: true,
     showProject: true,
     showLaunchDir: false,
+    mascot: false,
     showAddedDirs: true,
     addedDirsLayout: 'inline',
     showContextBar: true,
