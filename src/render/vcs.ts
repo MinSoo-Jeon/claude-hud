@@ -1,6 +1,7 @@
 import * as path from 'node:path';
 import { DEFAULT_CONFIG } from '../config.ts';
 import type { Frame, Layout } from './frame.ts';
+import type { GitStatus } from '../git.ts';
 import { critical, dim, git as gitColor, gitBranch, green, red, warning, yellow } from './colors.ts';
 import { getFileHref, safeHyperlink } from '../utils/hyperlinks.ts';
 import { sanitizeDisplayText } from '../utils/sanitize.ts';
@@ -14,22 +15,47 @@ function aheadCount(f: Frame, ahead: number): string {
   return gitBranch(value, colors);
 }
 
-/**
- * `git:(main* ↑2)` or `jj:(…)`, plus the worktree name. Expanded adds line diffs;
- * compact adds Starship-style file counts instead. jj never shows git-only details.
- */
-export function vcsPart(f: Frame, layout: Layout): string | null {
-  const status = f.gitStatus;
-  if (!status) return null;
+function vcsConfig(f: Frame) {
   const git = f.config.gitStatus ?? DEFAULT_CONFIG.gitStatus;
   const jj = f.config.jjStatus ?? DEFAULT_CONFIG.jjStatus;
-  const isJj = status.vcs === 'jj';
-  if (!(isJj ? jj.enabled : git.enabled)) return null;
+  const isJj = f.gitStatus?.vcs === 'jj';
+  return { git, jj, isJj, enabled: isJj ? jj.enabled : git.enabled };
+}
+
+function branchName(f: Frame, status: GitStatus): string {
+  const { git, jj, isJj } = vcsConfig(f);
+  const dirty = (isJj ? jj.showDirty : git.showDirty) && status.isDirty;
+  return safeHyperlink(isJj ? undefined : status.branchUrl, gitBranch(`${sanitizeDisplayText(status.branch)}${dirty ? '*' : ''}`, f.config?.colors));
+}
+
+function worktreeSuffix(f: Frame): string {
+  const { git, isJj } = vcsConfig(f);
+  const name = !isJj && git.showWorktree ? sanitizeDisplayText(f.stdin.workspace?.git_worktree ?? '').trim() : '';
+  return name ? ` ${gitColor(`⎇ ${name}`, f.config?.colors)}` : '';
+}
+
+/** The branch name (with its link and dirty mark) and the worktree name, as one part of the project row. */
+export function branchPart(f: Frame): string | null {
+  const status = f.gitStatus;
+  if (!status || !vcsConfig(f).enabled) return null;
+  return `${branchName(f, status)}${worktreeSuffix(f)}`;
+}
+
+/**
+ * `branch:(main* ↑2)` or `jj:(…)`, plus the worktree name. Expanded adds line diffs;
+ * compact adds Starship-style file counts instead. jj never shows git-only details.
+ * With `branchShown` the branch and worktree are left out (the project row has them) and
+ * only the changes remain, without the label; null when there are none.
+ */
+export function vcsPart(f: Frame, layout: Layout, branchShown = false): string | null {
+  const status = f.gitStatus;
+  if (!status) return null;
+  const { git, jj, isJj, enabled } = vcsConfig(f);
+  if (!enabled) return null;
 
   const colors = f.config?.colors;
-  const dirty = (isJj ? jj.showDirty : git.showDirty) && status.isDirty;
-  const branch = safeHyperlink(isJj ? undefined : status.branchUrl, gitBranch(`${sanitizeDisplayText(status.branch)}${dirty ? '*' : ''}`, colors));
-  const inner = [branch];
+  const inner: string[] = [];
+  if (!branchShown) inner.push(branchName(f, status));
 
   if (!isJj && git.showAheadBehind) {
     if (status.ahead > 0) inner.push(aheadCount(f, status.ahead));
@@ -50,10 +76,9 @@ export function vcsPart(f: Frame, layout: Layout): string | null {
     }
   }
   if (isJj && jj.showConflicts && status.conflict === true) inner.push(critical('!conflict', colors));
+  if (branchShown) return inner.length > 0 ? inner.join(' ') : null;
 
-  const worktreeName = !isJj && git.showWorktree ? sanitizeDisplayText(f.stdin.workspace?.git_worktree ?? '').trim() : '';
-  const worktree = worktreeName ? ` ${gitColor(`⎇ ${worktreeName}`, colors)}` : '';
-  return `${gitColor(isJj ? 'jj:(' : 'git:(', colors)}${inner.join(' ')}${gitColor(')', colors)}${worktree}`;
+  return `${gitColor(isJj ? 'jj:(' : 'branch:(', colors)}${inner.join(' ')}${gitColor(')', colors)}${worktreeSuffix(f)}`;
 }
 
 function insideCwd(cwd: string, candidate: string): string | null {

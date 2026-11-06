@@ -41,7 +41,7 @@ Then run `/reload-plugins` and `/hud` inside a session.
 The default is two lines:
 
 ```
-[Opus] │ my-project git:(main*)
+[Opus] │ my-project branch:(main*)
 Context █████░░░░░ 45% │ Usage ██░░░░░░░░ 25% (resets in 1h 30m)
 ```
 

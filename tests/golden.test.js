@@ -51,11 +51,11 @@ async function runCase(spec) {
     await mkdir(project, { recursive: true });
     await mkdir(path.dirname(transcript), { recursive: true });
     await copyFile(path.join(goldenDir, spec.transcript ?? 'transcript.jsonl'), transcript);
-    if (spec.config) {
-      const pluginDir = path.join(configDir, 'plugins', 'claude-hud');
-      await mkdir(pluginDir, { recursive: true });
-      await writeFile(path.join(pluginDir, 'config.json'), JSON.stringify(spec.config));
-    }
+    // The mascot is on by default; pin it off so the other cases stay about their own element.
+    const config = { ...spec.config, display: { mascot: false, ...spec.config?.display } };
+    const pluginDir = path.join(configDir, 'plugins', 'claude-hud');
+    await mkdir(pluginDir, { recursive: true });
+    await writeFile(path.join(pluginDir, 'config.json'), JSON.stringify(config));
 
     const env = {
       PATH: process.env.PATH,

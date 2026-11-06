@@ -18,7 +18,7 @@
   },
   "expect": [
     "exit 0",
-    "contains git:(main)",
+    "contains │ main",
     "no line wider than columns"
   ]
 }

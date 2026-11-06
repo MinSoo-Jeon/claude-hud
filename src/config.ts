@@ -233,7 +233,7 @@ export const DEFAULT_CONFIG: HudConfig = {
     showModel: true,
     showProject: true,
     showLaunchDir: false,
-    mascot: false,
+    mascot: true,
     showAddedDirs: true,
     addedDirsLayout: 'inline',
     showContextBar: true,
