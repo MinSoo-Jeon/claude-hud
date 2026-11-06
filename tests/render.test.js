@@ -41,7 +41,8 @@ function ctx({ config = {}, stdin = {}, transcript = {}, ...rest } = {}) {
     memoryUsage: null,
     extraLabel: null,
     ...rest,
-    config: mergeConfig(config),
+    // These cases are about other elements, so they pin the context format instead of following the default.
+    config: mergeConfig({ ...config, display: { contextValue: 'percent', ...config.display } }),
   };
 }
 
@@ -233,7 +234,7 @@ test('git shows line diffs in expanded and file counts in compact', () => {
 });
 
 test('git branchOverflow wrap puts git in its own part', () => {
-  const config = { gitStatus: { branchOverflow: 'wrap' } };
+  const config = { gitStatus: { branchOverflow: 'wrap', showAheadBehind: false, showFileStats: false } };
   assert.equal(lines(ctx({ gitStatus, config }))[0], '[Opus] │ my-project │ git:(main*)');
   assert.deepEqual(lines(ctx({ gitStatus, config }), 15).slice(0, 3), ['[Opus]', 'my-project', 'git:(main*)']);
 });
