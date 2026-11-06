@@ -41,7 +41,7 @@ claude plugin install claude-hud@claude-hud
 默认显示两行：
 
 ```
-[Opus] │ my-project git:(main*)
+[Opus] │ my-project branch:(main*)
 Context █████░░░░░ 45% │ Usage ██░░░░░░░░ 25% (resets in 1h 30m)
 ```
 

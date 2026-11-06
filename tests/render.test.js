@@ -227,16 +227,16 @@ const gitConfig = { gitStatus: { showAheadBehind: true, showFileStats: true, sho
 
 test('git shows line diffs in expanded and file counts in compact', () => {
   const stdin = { workspace: { git_worktree: 'feature-x' } };
-  assert.equal(lines(ctx({ gitStatus, stdin, config: gitConfig }))[0], '[Opus] │ my-project git:(main* ↑3 ↓1 [+12 -4]) ⎇ feature-x');
-  assert.equal(lines(ctx({ gitStatus, stdin, config: compact(gitConfig) }))[0], '[Opus] █████░░░░░ 45% | my-project git:(main* ↑3 ↓1 !2 +1 ✘1 ?3) ⎇ feature-x');
+  assert.equal(lines(ctx({ gitStatus, stdin, config: gitConfig }))[0], '[Opus] │ my-project branch:(main* ↑3 ↓1 [+12 -4]) ⎇ feature-x');
+  assert.equal(lines(ctx({ gitStatus, stdin, config: compact(gitConfig) }))[0], '[Opus] █████░░░░░ 45% | my-project branch:(main* ↑3 ↓1 !2 +1 ✘1 ?3) ⎇ feature-x');
   assert.ok(raw(ctx({ gitStatus, config: gitConfig }))[0].includes(`${RED}↑3`), 'at the critical threshold');
   assert.equal(lines(ctx({ gitStatus, config: { gitStatus: { enabled: false } } }))[0], '[Opus] │ my-project');
 });
 
 test('git branchOverflow wrap puts git in its own part', () => {
   const config = { gitStatus: { branchOverflow: 'wrap', showAheadBehind: false, showFileStats: false } };
-  assert.equal(lines(ctx({ gitStatus, config }))[0], '[Opus] │ my-project │ git:(main*)');
-  assert.deepEqual(lines(ctx({ gitStatus, config }), 15).slice(0, 3), ['[Opus]', 'my-project', 'git:(main*)']);
+  assert.equal(lines(ctx({ gitStatus, config }))[0], '[Opus] │ my-project │ branch:(main*)');
+  assert.deepEqual(lines(ctx({ gitStatus, config }), 15).slice(0, 3), ['[Opus]', 'my-project', 'branch:(main*)']);
 });
 
 test('the mascot is 10 lines, centers the HUD beside it and puts git on its own row', () => {
@@ -248,10 +248,10 @@ test('the mascot is 10 lines, centers the HUD beside it and puts git on its own 
   assert.deepEqual(out.map((line) => line.slice(art).trimEnd()).filter(Boolean), [
     '[Opus] │ my-project',
     'Context █████░░░░░ 45%',
-    'git:(main* ↑3 ↓1 [+12 -4])',
+    'branch:(main* ↑3 ↓1 [+12 -4])',
     '?3',
   ]);
-  assert.equal(lines(ctx({ gitStatus }))[0], '[Opus] │ my-project git:(main* ↑3 ↓1 [+12 -4])', 'git stays inline without the mascot');
+  assert.equal(lines(ctx({ gitStatus }))[0], '[Opus] │ my-project branch:(main* ↑3 ↓1 [+12 -4])', 'git stays inline without the mascot');
 });
 
 test('the mascot narrows the width the HUD wraps to and drops out when the terminal is too narrow', () => {
@@ -261,7 +261,7 @@ test('the mascot narrows the width the HUD wraps to and drops out when the termi
   assert.ok(wide.every((line) => textWidth(line) <= 70), 'no line exceeds the terminal');
   const narrow = lines(ctx({ gitStatus, config }), 60);
   assert.ok(narrow.length < 10, 'below 63 columns the HUD is drawn without the mascot');
-  assert.equal(narrow[0], '[Opus] │ my-project git:(main* ↑3 ↓1 [+12 -4])');
+  assert.equal(narrow[0], '[Opus] │ my-project branch:(main* ↑3 ↓1 [+12 -4])');
 });
 
 test('the mascot is picked from the session id and stays the same for that session', () => {

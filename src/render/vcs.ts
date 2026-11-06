@@ -15,7 +15,7 @@ function aheadCount(f: Frame, ahead: number): string {
 }
 
 /**
- * `git:(main* ↑2)` or `jj:(…)`, plus the worktree name. Expanded adds line diffs;
+ * `branch:(main* ↑2)` or `jj:(…)`, plus the worktree name. Expanded adds line diffs;
  * compact adds Starship-style file counts instead. jj never shows git-only details.
  */
 export function vcsPart(f: Frame, layout: Layout): string | null {
@@ -53,7 +53,7 @@ export function vcsPart(f: Frame, layout: Layout): string | null {
 
   const worktreeName = !isJj && git.showWorktree ? sanitizeDisplayText(f.stdin.workspace?.git_worktree ?? '').trim() : '';
   const worktree = worktreeName ? ` ${gitColor(`⎇ ${worktreeName}`, colors)}` : '';
-  return `${gitColor(isJj ? 'jj:(' : 'git:(', colors)}${inner.join(' ')}${gitColor(')', colors)}${worktree}`;
+  return `${gitColor(isJj ? 'jj:(' : 'branch:(', colors)}${inner.join(' ')}${gitColor(')', colors)}${worktree}`;
 }
 
 function insideCwd(cwd: string, candidate: string): string | null {
