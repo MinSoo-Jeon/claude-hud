@@ -12,13 +12,18 @@ import {
   projectParts, sessionNamePart, sessionTokensSummary, speedPart, versionPart, type Part,
 } from './parts.ts';
 import { usageParts } from './usage.ts';
-import { gitFilesLine } from './vcs.ts';
+import { gitFilesLine, vcsPart } from './vcs.ts';
 import { t } from '../i18n/index.ts';
 
 const ACTIVITY = new Set<HudElement>(['tools', 'skills', 'mcp', 'agents', 'todos']);
 
 function elementOrder(f: Frame): HudElement[] {
   return f.config?.elementOrder ?? DEFAULT_ELEMENT_ORDER;
+}
+
+// The mascot leaves room beside it, so git gets its own row under the project and context rows.
+function gitOnOwnRow(f: Frame): boolean {
+  return f.config?.display?.mascot === true;
 }
 
 function projectLine(f: Frame): string | null {
@@ -29,7 +34,7 @@ function projectLine(f: Frame): string | null {
   };
   add(customLinePart(f, 'first'));
   if (display?.showModel !== false) add(modelBadge(f), 'model');
-  for (const part of projectParts(f, 'expanded')) add(part, 'project');
+  for (const part of projectParts(f, 'expanded', !gitOnOwnRow(f))) add(part, 'project');
   add(advisorPart(f), 'advisor');
   add(sessionNamePart(f), 'sessionName');
   add(versionPart(f), 'version');
@@ -134,6 +139,14 @@ export function expandedLines(f: Frame): string[] {
       for (const { element: member, line } of entries) {
         rows.push({ line: elementLine(f, member, stackedAlign) ?? line, activity: ACTIVITY.has(member) });
       }
+    }
+  }
+
+  if (gitOnOwnRow(f)) {
+    const vcs = vcsPart(f, 'expanded');
+    if (vcs) {
+      const firstActivityRow = rows.findIndex(({ activity }) => activity);
+      rows.splice(firstActivityRow < 0 ? rows.length : firstActivityRow, 0, { line: vcs, activity: false });
     }
   }
 

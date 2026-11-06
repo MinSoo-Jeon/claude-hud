@@ -28,7 +28,7 @@ export const DESCRIPTIONS: Record<string, string> = {
   "jjStatus.showConflicts": "Show a `!conflict` marker when the working-copy commit has an unresolved conflict",
   "display.showModel": "Show model name `[Opus]`",
   "display.showProject": "Show the project path",
-  "display.mascot": "Draw a 10-line pixel-art mascot to the left of the HUD, with the HUD lines centered beside it. Needs a 24-bit color terminal",
+  "display.mascot": "Draw a 10-line pixel-art mascot to the left of the HUD, with the HUD lines centered beside it and the git block on its own line under the context line. Needs a 24-bit color terminal",
   "display.showLaunchDir": "Prefix the project path with the name of the directory Claude Code was launched in, when the shown path doesn't already include it (e.g. `my-repo › src`). No effect with `pathLevels: \"full\"`",
   "display.modelSource": "Controls which source the model name comes from. `stdin` preserves the default behavior and always uses what Claude Code reports. `auto` opts into proxy redirect detection by using transcript models only for non-Claude models. `transcript` always uses the model from the API response. Transcript model values are terminal-sanitized and capped at 80 characters",
   "display.modelFormat": "`compact` drops a context-window suffix such as `(1M context)`; `short` also drops a leading `Claude `",

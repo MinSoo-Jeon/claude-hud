@@ -239,6 +239,26 @@ test('git branchOverflow wrap puts git in its own part', () => {
   assert.deepEqual(lines(ctx({ gitStatus, config }), 15).slice(0, 3), ['[Opus]', 'my-project', 'git:(main*)']);
 });
 
+test('the mascot is 10 lines, centers the HUD beside it and puts git on its own row', () => {
+  const art = 21 + 2;
+  const config = { display: { mascot: true } };
+  const out = lines(ctx({ gitStatus, config }));
+  assert.equal(out.length, 10);
+  // Four HUD rows: project, context, git, then the changed-files row (here only the untracked count).
+  assert.deepEqual(out.map((line) => line.slice(art).trimEnd()).filter(Boolean), [
+    '[Opus] │ my-project',
+    'Context █████░░░░░ 45%',
+    'git:(main* ↑3 ↓1 [+12 -4])',
+    '?3',
+  ]);
+  assert.equal(lines(ctx({ gitStatus }))[0], '[Opus] │ my-project git:(main* ↑3 ↓1 [+12 -4])', 'git stays inline without the mascot');
+});
+
+test('the mascot narrows the width the HUD wraps to', () => {
+  const out = lines(ctx({ gitStatus, config: { display: { mascot: true } } }), 40);
+  assert.ok(out.every((line) => textWidth(line) <= 40), 'no line exceeds the terminal');
+});
+
 test('jj has its own toggle, a conflict marker, and no git-only details', () => {
   const jj = { ...gitStatus, vcs: 'jj', conflict: true, branchUrl: 'https://github.com/a/b/tree/main' };
   const config = { ...gitConfig, jjStatus: { enabled: true } };
