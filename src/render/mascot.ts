@@ -1,4 +1,5 @@
 import { RESET } from './colors.ts';
+import type { Frame } from './frame.ts';
 
 const PALETTE: Record<string, [number, number, number]> = {
   K: [0, 0, 0],
@@ -34,6 +35,14 @@ const ART = [
 ];
 
 export const MASCOT_WIDTH = ART[0].length;
+export const MASCOT_GAP = 2;
+// Narrower terminals drop the mascot rather than squeeze the HUD beside it.
+const MIN_TEXT_WIDTH = 40;
+
+/** Whether this frame draws the mascot: it is on and, when the width is known, leaves the HUD room. */
+export function mascotShown(f: Frame): boolean {
+  return f.config?.display?.mascot === true && (f.width === null || f.width - MASCOT_WIDTH - MASCOT_GAP >= MIN_TEXT_WIDTH);
+}
 
 const fg = ([r, g, b]: number[]) => `\x1b[38;2;${r};${g};${b}m`;
 const bg = ([r, g, b]: number[]) => `\x1b[48;2;${r};${g};${b}m`;

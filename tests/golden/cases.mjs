@@ -205,6 +205,8 @@ for (const [name, config] of Object.entries(options)) {
   add(`option/${name}`, { stdin: rich, config, git: config.gitStatus ? 'dirty' : undefined });
 }
 for (const [name, config] of SINGLE_TOGGLES) add(`toggle/${name}`, { stdin: rich, config });
+add('mascot/on@120', { stdin: rich, config: { display: { mascot: true } }, git: 'dirty', columns: 120 });
+add('mascot/too-narrow@60', { stdin: rich, config: { display: { mascot: true } }, git: 'dirty', columns: 60 });
 add('toggle/showRoutedCost+bedrock', { stdin: stdin.bedrock, config: { display: { showCost: true, showRoutedCost: true } } });
 add('toggle/showCost+bedrock', { stdin: stdin.bedrock, config: { display: { showCost: true } } });
 

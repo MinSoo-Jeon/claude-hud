@@ -6,6 +6,7 @@ import { separatorLine, visibleWidth } from './ansi.ts';
 import { contextLine } from './context.ts';
 import type { LabelAlign } from './labels.ts';
 import { addedDirsLine, cacheHitRateLine, environmentLine, memoryLine, promptCacheLine, sessionTimeLine } from './lines.ts';
+import { mascotShown } from './mascot.ts';
 import { orderParts } from './order.ts';
 import {
   advisorPart, authPart, compactionsPart, costPart, customLinePart, durationPart, extraPart, modelBadge,
@@ -22,9 +23,7 @@ function elementOrder(f: Frame): HudElement[] {
 }
 
 // The mascot leaves room beside it, so git gets its own row under the project and context rows.
-function gitOnOwnRow(f: Frame): boolean {
-  return f.config?.display?.mascot === true;
-}
+const gitOnOwnRow = mascotShown;
 
 function projectLine(f: Frame): string | null {
   const display = f.config?.display;

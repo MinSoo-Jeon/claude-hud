@@ -4,15 +4,13 @@ import { wrapToWidth } from './ansi.ts';
 import { compactLines } from './compact.ts';
 import { expandedLines } from './expanded.ts';
 import { createFrame } from './frame.ts';
-import { MASCOT_LINES, MASCOT_WIDTH } from './mascot.ts';
-
-const MASCOT_GAP = 2;
+import { MASCOT_GAP, MASCOT_LINES, MASCOT_WIDTH, mascotShown } from './mascot.ts';
 
 /** The lines the HUD prints, wrapped to the terminal width when it is known. */
 export function renderLines(ctx: RenderContext, columns: number | null, now: number): string[] {
   const frame = createFrame(ctx, columns, now);
-  const mascot = ctx.config?.display?.mascot === true;
-  const textWidth = mascot && frame.width !== null ? Math.max(1, frame.width - MASCOT_WIDTH - MASCOT_GAP) : frame.width ?? 0;
+  const mascot = mascotShown(frame);
+  const textWidth = mascot && frame.width !== null ? frame.width - MASCOT_WIDTH - MASCOT_GAP : frame.width ?? 0;
   const lines = (ctx.config?.lineLayout ?? 'expanded') === 'expanded' ? expandedLines(frame) : compactLines(frame);
   const text = lines
     .flatMap((line) => line.split('\n'))
