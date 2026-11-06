@@ -205,8 +205,11 @@ for (const [name, config] of Object.entries(options)) {
   add(`option/${name}`, { stdin: rich, config, git: config.gitStatus ? 'dirty' : undefined });
 }
 for (const [name, config] of SINGLE_TOGGLES) add(`toggle/${name}`, { stdin: rich, config });
-add('mascot/on@120', { stdin: rich, config: { display: { mascot: true } }, git: 'dirty', columns: 120 });
-add('mascot/too-narrow@60', { stdin: rich, config: { display: { mascot: true } }, git: 'dirty', columns: 60 });
+// The mascot follows the session id; these ids pick the first and the second one.
+add('mascot/on@120', { stdin: { ...rich, session_id: 'a' }, config: { display: { mascot: true } }, git: 'dirty', columns: 120 });
+add('mascot/bunny@120', { stdin: { ...rich, session_id: 'b' }, config: { display: { mascot: true } }, git: 'dirty', columns: 120 });
+add('mascot/too-narrow@60', { stdin: { ...rich, session_id: 'a' }, config: { display: { mascot: true } }, git: 'dirty', columns: 60 });
+add('mascot/bunny-too-narrow@70', { stdin: { ...rich, session_id: 'b' }, config: { display: { mascot: true } }, git: 'dirty', columns: 70 });
 add('toggle/showRoutedCost+bedrock', { stdin: stdin.bedrock, config: { display: { showCost: true, showRoutedCost: true } } });
 add('toggle/showCost+bedrock', { stdin: stdin.bedrock, config: { display: { showCost: true } } });
 

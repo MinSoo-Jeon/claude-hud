@@ -264,6 +264,25 @@ test('the mascot narrows the width the HUD wraps to and drops out when the termi
   assert.equal(narrow[0], '[Opus] │ my-project git:(main* ↑3 ↓1 [+12 -4])');
 });
 
+test('the mascot is picked from the session id and stays the same for that session', () => {
+  const config = { display: { mascot: true } };
+  const draw = (session_id) => raw(ctx({ gitStatus, config, stdin: session_id === undefined ? {} : { session_id } }));
+  assert.equal(draw(undefined).length, 10, 'no session id: the first mascot');
+  assert.equal(draw('a').length, 10);
+  assert.deepEqual(draw('b'), draw('b'), 'the same session keeps its mascot');
+  assert.equal(draw('b').length, 19, 'another session id picks the bunny');
+  assert.notDeepEqual(draw('a')[0], draw('b')[0]);
+});
+
+test('the bunny needs a wider terminal than the first mascot', () => {
+  const config = { display: { mascot: true } };
+  const stdin = { session_id: 'b' };
+  assert.equal(lines(ctx({ gitStatus, config, stdin }), 70).length, 19);
+  const narrow = lines(ctx({ gitStatus, config, stdin }), 67);
+  assert.ok(narrow.length < 19, 'below 68 columns the HUD is drawn without the bunny');
+  assert.equal(lines(ctx({ gitStatus, config }), 63).length, 10, 'the first mascot still fits at 63');
+});
+
 test('jj has its own toggle, a conflict marker, and no git-only details', () => {
   const jj = { ...gitStatus, vcs: 'jj', conflict: true, branchUrl: 'https://github.com/a/b/tree/main' };
   const config = { ...gitConfig, jjStatus: { enabled: true } };
