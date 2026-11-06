@@ -96,8 +96,9 @@ export function addedDirs(f: Frame, prefix: string, joiner: string): string | nu
 /**
  * The project path with its VCS segment, as one part or, with
  * branchOverflow "wrap", two. Expanded links the path and inlines added dirs.
+ * `withVcs: false` leaves the VCS segment to the caller, who gives it its own row.
  */
-export function projectParts(f: Frame, layout: Layout): string[] {
+export function projectParts(f: Frame, layout: Layout, withVcs = true): string[] {
   const display = f.config?.display;
   const colors = f.config?.colors;
   let project: string | null = null;
@@ -113,7 +114,7 @@ export function projectParts(f: Frame, layout: Layout): string[] {
     if (dirs) project = project ? `${project} ${dirs}` : dirs;
   }
 
-  const vcs = vcsPart(f, layout);
+  const vcs = withVcs ? vcsPart(f, layout) : null;
   if (project && vcs) {
     const overflow = f.config.gitStatus?.branchOverflow ?? DEFAULT_CONFIG.gitStatus.branchOverflow;
     return overflow === 'wrap' ? [project, vcs] : [`${project} ${vcs}`];
