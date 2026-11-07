@@ -40,6 +40,8 @@ test("CLI renders expected output for a basic transcript", async (t) => {
     fs.mkdir(projectDir, { recursive: true }),
   );
   try {
+    // The mascot is on by default; these cases are about other output.
+    await writeHudConfig(homeDir, { display: { mascot: false } });
     const stdin = JSON.stringify({
       model: { display_name: "Opus" },
       context_window: {
@@ -90,6 +92,8 @@ test("CLI renders added_dirs basenames on the project line", async (t) => {
     ]),
   );
   try {
+    // The mascot is on by default; these cases are about other output.
+    await writeHudConfig(homeDir, { display: { mascot: false } });
     const stdin = JSON.stringify({
       model: { display_name: "Opus" },
       context_window: {
@@ -221,6 +225,8 @@ test("CLI ignores non-string and post-sanitize-empty added_dirs entries", async 
     ]),
   );
   try {
+    // The mascot is on by default; these cases are about other output.
+    await writeHudConfig(homeDir, { display: { mascot: false } });
     const stdin = JSON.stringify({
       model: { display_name: "Opus" },
       context_window: {
@@ -272,6 +278,8 @@ test("CLI caps inline added_dirs at 5 with overflow indicator", async (t) => {
     ]),
   );
   try {
+    // The mascot is on by default; these cases are about other output.
+    await writeHudConfig(homeDir, { display: { mascot: false } });
     const stdin = JSON.stringify({
       model: { display_name: "Opus" },
       context_window: {
@@ -320,6 +328,8 @@ test("CLI truncates long inline added_dirs basenames", async (t) => {
     ]),
   );
   try {
+    // The mascot is on by default; these cases are about other output.
+    await writeHudConfig(homeDir, { display: { mascot: false } });
     const stdin = JSON.stringify({
       model: { display_name: "Opus" },
       context_window: {
@@ -422,7 +432,7 @@ test("CLI renders inline added_dirs even when showProject is false", async (t) =
       fs.mkdir(addedDir, { recursive: true }),
     ]),
   );
-  await writeHudConfig(homeDir, { display: { showProject: false } });
+  await writeHudConfig(homeDir, { display: { showProject: false, mascot: false } });
   try {
     const stdin = JSON.stringify({
       model: { display_name: "Opus" },

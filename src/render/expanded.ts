@@ -6,13 +6,14 @@ import { separatorLine, visibleWidth } from './ansi.ts';
 import { contextLine } from './context.ts';
 import type { LabelAlign } from './labels.ts';
 import { addedDirsLine, cacheHitRateLine, environmentLine, memoryLine, promptCacheLine, sessionTimeLine } from './lines.ts';
+import { mascotShown } from './mascot.ts';
 import { orderParts } from './order.ts';
 import {
   advisorPart, authPart, compactionsPart, costPart, customLinePart, durationPart, extraPart, modelBadge,
   projectParts, sessionNamePart, sessionTokensSummary, speedPart, versionPart, type Part,
 } from './parts.ts';
 import { usageParts } from './usage.ts';
-import { gitFilesLine, vcsPart } from './vcs.ts';
+import { branchPart, gitFilesLine, vcsPart } from './vcs.ts';
 import { t } from '../i18n/index.ts';
 
 const ACTIVITY = new Set<HudElement>(['tools', 'skills', 'mcp', 'agents', 'todos']);
@@ -21,10 +22,8 @@ function elementOrder(f: Frame): HudElement[] {
   return f.config?.elementOrder ?? DEFAULT_ELEMENT_ORDER;
 }
 
-// The mascot leaves room beside it, so git gets its own row under the project and context rows.
-function gitOnOwnRow(f: Frame): boolean {
-  return f.config?.display?.mascot === true;
-}
+// The mascot leaves room beside it, so the branch joins the project row and the changes and changed files share one row under the context row.
+const gitOnOwnRow = mascotShown;
 
 function projectLine(f: Frame): string | null {
   const display = f.config?.display;
@@ -35,6 +34,7 @@ function projectLine(f: Frame): string | null {
   add(customLinePart(f, 'first'));
   if (display?.showModel !== false) add(modelBadge(f), 'model');
   for (const part of projectParts(f, 'expanded', !gitOnOwnRow(f))) add(part, 'project');
+  if (gitOnOwnRow(f)) add(branchPart(f), 'project');
   add(advisorPart(f), 'advisor');
   add(sessionNamePart(f), 'sessionName');
   add(versionPart(f), 'version');
@@ -143,15 +143,16 @@ export function expandedLines(f: Frame): string[] {
   }
 
   if (gitOnOwnRow(f)) {
-    const vcs = vcsPart(f, 'expanded');
-    if (vcs) {
+    // The changes and the changed files share one row.
+    const changes = [vcsPart(f, 'expanded', true), gitFilesLine(f)].filter(Boolean).join('  ');
+    if (changes) {
       const firstActivityRow = rows.findIndex(({ activity }) => activity);
-      rows.splice(firstActivityRow < 0 ? rows.length : firstActivityRow, 0, { line: vcs, activity: false });
+      rows.splice(firstActivityRow < 0 ? rows.length : firstActivityRow, 0, { line: changes, activity: false });
     }
   }
 
   const lines = rows.map(({ line }) => line);
-  const gitFiles = gitFilesLine(f);
+  const gitFiles = gitOnOwnRow(f) ? null : gitFilesLine(f);
   if (gitFiles) lines.push(gitFiles);
   // Until sessionTokens is placed in elementOrder, the summary keeps its own last line.
   if (!order.includes('sessionTokens')) {
@@ -166,5 +167,16 @@ export function expandedLines(f: Frame): string[] {
     const widest = Math.max(...rows.slice(0, firstActivity).map(({ line }) => visibleWidth(line)), 20);
     lines.splice(firstActivity, 0, separatorLine(f.width ? Math.min(widest, f.width) : widest));
   }
+  // Environment and agents rows placed last in elementOrder stay the last lines, below the lines appended above.
+  let start = order.length;
+  while (start > 0 && (order[start - 1] === 'environment' || order[start - 1] === 'agents')) start--;
+  const tail = order.slice(start);
+  const moved: string[] = [];
+  for (const element of tail) {
+    const line = elementLine(f, element);
+    const at = line === null ? -1 : lines.indexOf(line);
+    if (at >= 0) moved.push(...lines.splice(at, 1));
+  }
+  lines.push(...moved);
   return lines;
 }
