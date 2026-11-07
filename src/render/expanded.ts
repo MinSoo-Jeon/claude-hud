@@ -22,7 +22,7 @@ function elementOrder(f: Frame): HudElement[] {
   return f.config?.elementOrder ?? DEFAULT_ELEMENT_ORDER;
 }
 
-// The mascot leaves room beside it, so the branch joins the project row and the changes get their own row under the context row.
+// The mascot leaves room beside it, so the branch joins the project row and the changes and changed files share one row under the context row.
 const gitOnOwnRow = mascotShown;
 
 function projectLine(f: Frame): string | null {
@@ -143,15 +143,16 @@ export function expandedLines(f: Frame): string[] {
   }
 
   if (gitOnOwnRow(f)) {
-    const vcs = vcsPart(f, 'expanded', true);
-    if (vcs) {
+    // The changes and the changed files share one row.
+    const changes = [vcsPart(f, 'expanded', true), gitFilesLine(f)].filter(Boolean).join('  ');
+    if (changes) {
       const firstActivityRow = rows.findIndex(({ activity }) => activity);
-      rows.splice(firstActivityRow < 0 ? rows.length : firstActivityRow, 0, { line: vcs, activity: false });
+      rows.splice(firstActivityRow < 0 ? rows.length : firstActivityRow, 0, { line: changes, activity: false });
     }
   }
 
   const lines = rows.map(({ line }) => line);
-  const gitFiles = gitFilesLine(f);
+  const gitFiles = gitOnOwnRow(f) ? null : gitFilesLine(f);
   if (gitFiles) lines.push(gitFiles);
   // Until sessionTokens is placed in elementOrder, the summary keeps its own last line.
   if (!order.includes('sessionTokens')) {
@@ -166,5 +167,16 @@ export function expandedLines(f: Frame): string[] {
     const widest = Math.max(...rows.slice(0, firstActivity).map(({ line }) => visibleWidth(line)), 20);
     lines.splice(firstActivity, 0, separatorLine(f.width ? Math.min(widest, f.width) : widest));
   }
+  // Environment and agents rows placed last in elementOrder stay the last lines, below the lines appended above.
+  let start = order.length;
+  while (start > 0 && (order[start - 1] === 'environment' || order[start - 1] === 'agents')) start--;
+  const tail = order.slice(start);
+  const moved: string[] = [];
+  for (const element of tail) {
+    const line = elementLine(f, element);
+    const at = line === null ? -1 : lines.indexOf(line);
+    if (at >= 0) moved.push(...lines.splice(at, 1));
+  }
+  lines.push(...moved);
   return lines;
 }

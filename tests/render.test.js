@@ -239,19 +239,49 @@ test('git branchOverflow wrap puts git in its own part', () => {
   assert.deepEqual(lines(ctx({ gitStatus, config }), 15).slice(0, 3), ['[Opus]', 'my-project', 'branch:(main*)']);
 });
 
-test('the mascot is 10 lines, centers the HUD beside it, puts the branch on the project row and the changes on their own row', () => {
+test('the mascot is 10 lines, centers the HUD beside it, puts the branch on the project row and the changes with the changed files on one row', () => {
   const art = 21 + 2;
   const config = { display: { mascot: true } };
   const out = lines(ctx({ gitStatus, config }));
   assert.equal(out.length, 10);
-  // Four HUD rows: project and branch, context, the changes, then the changed-files row (here only the untracked count).
+  // Three HUD rows: project and branch, context, then the changes with the changed files (here only the untracked count).
   assert.deepEqual(out.map((line) => line.slice(art).trimEnd()).filter(Boolean), [
     '[Opus] │ my-project │ main*',
     'Context █████░░░░░ 45%',
-    '↑3 ↓1 [+12 -4]',
-    '?3',
+    '↑3 ↓1 [+12 -4]  ?3',
   ]);
   assert.equal(lines(ctx({ gitStatus }))[0], '[Opus] │ my-project branch:(main* ↑3 ↓1 [+12 -4])', 'git stays inline without the mascot');
+});
+
+test('an environment row placed last in elementOrder stays the last line, below the changes', () => {
+  const config = { display: { mascot: true, showConfigCounts: true }, elementOrder: ['project', 'context', 'environment'] };
+  const out = lines(ctx({ gitStatus, config, claudeMdCount: 2, rulesCount: 8, mcpCount: 6, hooksCount: 6 }));
+  const text = out.map((line) => line.slice(23).trimEnd()).filter(Boolean);
+  assert.equal(text.at(-1), '2 CLAUDE.md | 8 rules | 6 MCPs | 6 hooks');
+  assert.equal(text.at(-2), '↑3 ↓1 [+12 -4]  ?3');
+});
+
+test('agentProgress counts running subagents and estimates progress from finished ones of the same type', () => {
+  const config = { display: { showAgents: true, agentProgress: true } };
+  const done = { id: 'd', type: 'Explore', status: 'completed', startTime: ago(10 * MINUTE), endTime: ago(8 * MINUTE) };
+  const running = (id, type, started) => ({ id, type, status: 'running', startTime: ago(started) });
+  const out = lines(ctx({ transcript: { agents: [done, running('a', 'Explore', MINUTE), running('b', 'Plan', 30 * SECOND)] }, config }));
+  assert.deepEqual(out.slice(2), [
+    'Agents: 2 running',
+    '◐ Explore (1m 0s · ~50% · ~1m 0s left)',
+    '◐ Plan (30s)',
+  ]);
+  const late = lines(ctx({ transcript: { agents: [done, running('a', 'Explore', 3 * MINUTE)] }, config }));
+  assert.equal(late.at(-1), '◐ Explore (3m 0s · ~99% · almost done)');
+  assert.deepEqual(lines(ctx({ transcript: { agents: [running('a', 'Plan', SECOND)] }, config: { display: { showAgents: true } } })).slice(2), ['◐ Plan (1s)']);
+});
+
+test('the HUD beside the mascot is cut to the mascot height', () => {
+  const todos = Array.from({ length: 1 }, () => ({ content: 'x', status: 'in_progress' }));
+  const agents = Array.from({ length: 3 }, (_, i) => ({ id: `a${i}`, type: 't', status: 'running', startTime: ago(SECOND) }));
+  const config = { display: { mascot: true, showTodos: true, showAgents: true, showConfigCounts: true } };
+  const out = lines(ctx({ gitStatus, config, transcript: { todos, agents }, claudeMdCount: 1, rulesCount: 1, mcpCount: 1, hooksCount: 1 }));
+  assert.equal(out.length, 10, 'never taller than the 10-line mascot');
 });
 
 test('the mascot narrows the width the HUD wraps to and drops out when the terminal is too narrow', () => {

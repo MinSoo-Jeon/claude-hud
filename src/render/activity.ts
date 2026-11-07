@@ -106,6 +106,35 @@ export function shownAgents(agents: AgentEntry[], now: number): AgentEntry[] {
   return [...running, ...(slots > 0 ? recent.slice(-slots) : [])];
 }
 
+const MAX_HISTORY = 5;
+
+/** Mean run time of this session's most recent finished subagents of the same type; null with none. */
+function typicalDurationMs(agents: AgentEntry[], type: string): number | null {
+  const durations = agents
+    .filter((agent) => agent.type === type && agent.status === 'completed' && agent.endTime)
+    .map((agent) => (agent.endTime as Date).getTime() - agent.startTime.getTime())
+    .filter((ms) => Number.isFinite(ms) && ms > 0)
+    .slice(-MAX_HISTORY);
+  return durations.length > 0 ? durations.reduce((sum, ms) => sum + ms, 0) / durations.length : null;
+}
+
+/** `~60% · ~48s left` for a running agent, judged against how long its type took before. */
+function progressEstimate(f: Frame, agent: AgentEntry): string | null {
+  const typical = typicalDurationMs(f.transcript.agents, agent.type);
+  if (typical === null) return null;
+  const elapsed = Math.max(0, f.now - agent.startTime.getTime());
+  const percent = Math.min(99, Math.round((elapsed / typical) * 100));
+  const left = typical - elapsed;
+  return `~${percent}% · ${left > 0 ? `~${formatDuration(left)} left` : 'almost done'}`;
+}
+
+function formatDuration(ms: number): string {
+  const seconds = Math.max(1, Math.round(ms / 1000));
+  if (seconds < 60) return `${seconds}s`;
+  const mins = Math.floor(seconds / 60);
+  return mins < 60 ? `${mins}m ${seconds % 60}s` : `${Math.floor(mins / 60)}h ${mins % 60}m`;
+}
+
 function agentsLine(f: Frame): string | null {
   const colors = f.config?.colors;
   const shown = shownAgents(f.transcript.agents, f.now);
@@ -113,14 +142,18 @@ function agentsLine(f: Frame): string | null {
 
   const clean = (value: unknown, max: number): string => displayLabel(value, max, '...');
   const display = f.config?.display;
-  return shown.map((agent) => {
+  const progress = display?.agentProgress === true;
+  const running = shown.filter((agent) => agent.status === 'running').length;
+  const rows = shown.map((agent) => {
     const icon = agent.status === 'running' ? yellow('◐') : green('✓');
     const effort = display?.showAgentEffort ? effortInfo(agent.effort) : null;
     const badge = [shortModel(agent.model), effort && formatEffort(effort, display?.effortFormat)].filter(Boolean).join(' ');
     const description = clean(agent.description, 40);
     return `${icon} ${magenta(clean(agent.type, 24) || 'agent')}${badge ? ` ${label(`[${badge}]`, colors)}` : ''}`
-      + `${description ? label(`: ${description}`, colors) : ''} ${label(`(${formatElapsed(agent, f.now)})`, colors)}`;
-  }).join('\n');
+      + `${description ? label(`: ${description}`, colors) : ''} ${label(`(${[formatElapsed(agent, f.now), progress && agent.status === 'running' ? progressEstimate(f, agent) : null].filter(Boolean).join(' · ')})`, colors)}`;
+  });
+  if (progress && running > 0) rows.unshift(label(`Agents: ${running} running`, colors));
+  return rows.join('\n');
 }
 
 /** `▸ Fix the bug (2/5)`, or `✓ All todos complete (5/5)`. */

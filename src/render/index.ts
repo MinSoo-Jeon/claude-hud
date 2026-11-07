@@ -19,8 +19,9 @@ export function renderLines(ctx: RenderContext, columns: number | null, now: num
   return mascot ? besideMascot(mascot, text) : text;
 }
 
-/** The HUD lines centered vertically next to the mascot; extra lines continue below it. */
-function besideMascot({ lines, width }: MascotDraw, text: string[]): string[] {
+/** The HUD lines centered vertically next to the mascot; lines beyond the mascot's height are cut. */
+function besideMascot({ lines, width }: MascotDraw, all: string[]): string[] {
+  const text = all.slice(0, lines.length);
   const height = Math.max(lines.length, text.length);
   const offset = Math.floor((lines.length - Math.min(text.length, lines.length)) / 2);
   return Array.from({ length: height }, (_, i) => {
