@@ -4,6 +4,11 @@ All notable changes to Claude HUD will be documented in this file.
 
 ## [Unreleased]
 
+## [0.15.3] - 2026-11-08
+
+### Changed
+- The plugin and marketplace credit the fork's maintainer after the original author.
+
 ## [0.15.2] - 2026-11-08
 
 ### Added
