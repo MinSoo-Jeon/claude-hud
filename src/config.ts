@@ -97,10 +97,10 @@ export interface HudColorOverrides {
 
 // sessionTokens and cost are left out so they keep their built-in place (the tokens summary's
 // last line, cost on the first line) until they're placed.
-// This fork's order: the session token summary beside the project, config counts and agents last.
+// This fork's order: the session token summary beside the project, config counts under context and usage, agents last.
 export const DEFAULT_ELEMENT_ORDER: HudElement[] = [
-  'project', 'sessionTokens', 'addedDirs', 'context', 'usage', 'promptCache', 'cacheHitRate', 'memory', 'tools', 'skills', 'mcp', 'todos',
-  'sessionTime', 'environment', 'agents',
+  'project', 'sessionTokens', 'addedDirs', 'context', 'usage', 'environment', 'promptCache', 'cacheHitRate', 'memory', 'tools', 'skills', 'mcp',
+  'todos', 'sessionTime', 'agents',
 ];
 export const DEFAULT_MERGE_GROUPS: HudElement[][] = [['project', 'sessionTokens'], ['context', 'usage']];
 // Empty keeps each renderer's native order until the user moves a segment.

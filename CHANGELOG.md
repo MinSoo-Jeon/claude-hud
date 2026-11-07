@@ -7,7 +7,7 @@ All notable changes to Claude HUD will be documented in this file.
 ## [0.15.4] - 2026-11-08
 
 ### Changed
-- Most elements are on by default (config counts, skills, MCP, agents with progress, todos, effort level, session time, token summary, compactions, provider, jj), with the token summary beside the project and the config counts and agents last. Costs, auth, cache, memory, speed, tools and session name stay off. Settings you already have keep winning.
+- Most elements are on by default (config counts, skills, MCP, agents with progress, todos, effort level, session time, token summary, compactions, provider, jj), with the token summary beside the project, the config counts under context and usage, and agents last. Costs, auth, cache, memory, speed, tools and session name stay off. Settings you already have keep winning.
 
 ## [0.15.3] - 2026-11-08
 

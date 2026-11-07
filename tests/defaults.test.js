@@ -11,10 +11,11 @@ test('the extra displays are on by default and the legacy list names exactly the
   assert.equal(DEFAULT_CONFIG.jjStatus.enabled, true);
 });
 
-test('the session token summary sits beside the project and the config counts and agents come last', () => {
+test('the session token summary sits beside the project, the config counts follow context and usage and agents come last', () => {
   assert.deepEqual(DEFAULT_MERGE_GROUPS[0], ['project', 'sessionTokens']);
   assert.deepEqual(DEFAULT_ELEMENT_ORDER.slice(0, 2), ['project', 'sessionTokens']);
-  assert.deepEqual(DEFAULT_ELEMENT_ORDER.slice(-2), ['environment', 'agents']);
+  assert.equal(DEFAULT_ELEMENT_ORDER.indexOf('environment'), DEFAULT_ELEMENT_ORDER.indexOf('usage') + 1);
+  assert.equal(DEFAULT_ELEMENT_ORDER.at(-1), 'agents');
 });
 
 test('the costs, auth, cache, memory, speed and tools stay off', () => {
