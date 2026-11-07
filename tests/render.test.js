@@ -8,6 +8,7 @@ import { renderLines } from '../src/render/index.ts';
 import { mergeConfig } from '../src/config.ts';
 import { setLanguage } from '../src/i18n/index.ts';
 import { textWidth } from '../src/render/ansi.ts';
+import { withLegacyDefaults } from './legacy-defaults.js';
 
 const NOW = new Date(2026, 9, 1, 12, 0).getTime();
 const SECOND = 1000;
@@ -41,8 +42,8 @@ function ctx({ config = {}, stdin = {}, transcript = {}, ...rest } = {}) {
     memoryUsage: null,
     extraLabel: null,
     ...rest,
-    // These cases are about other elements, so they pin the context format and the mascot instead of following the defaults.
-    config: mergeConfig({ ...config, display: { contextValue: 'percent', mascot: false, ...config.display } }),
+    // These cases are about other elements, so they pin the context format, the mascot and this fork's extra defaults instead of following the defaults.
+    config: mergeConfig(withLegacyDefaults({ ...config, display: { contextValue: 'percent', mascot: false, ...config.display } })),
   };
 }
 

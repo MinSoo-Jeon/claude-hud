@@ -9,6 +9,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import cases, { NOW_MS } from './golden/cases.mjs';
+import { withLegacyDefaults } from './legacy-defaults.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const goldenDir = path.join(root, 'tests', 'golden');
@@ -52,7 +53,10 @@ async function runCase(spec) {
     await mkdir(path.dirname(transcript), { recursive: true });
     await copyFile(path.join(goldenDir, spec.transcript ?? 'transcript.jsonl'), transcript);
     // The mascot is on by default; pin it off so the other cases stay about their own element.
-    const config = { ...spec.config, display: { mascot: false, ...spec.config?.display } };
+    // `default/` cases show the real defaults; the rest pin this fork's extra defaults back to upstream's.
+    const config = spec.name.startsWith('default/')
+      ? { ...spec.config, display: { mascot: false, ...spec.config?.display } }
+      : withLegacyDefaults({ ...spec.config, display: { mascot: false, ...spec.config?.display } });
     const pluginDir = path.join(configDir, 'plugins', 'claude-hud');
     await mkdir(pluginDir, { recursive: true });
     await writeFile(path.join(pluginDir, 'config.json'), JSON.stringify(config));

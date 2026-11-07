@@ -41,7 +41,7 @@ Claude Code runs the command after each message, `/compact`, a mode change, a ra
 
 ## Invariants
 
-- The default HUD is two lines. New display is opt-in; see the scope section of CONTRIBUTING.md.
+- Upstream's default HUD is two lines and new display is opt-in (see the scope section of CONTRIBUTING.md). This fork turns most elements on by default: `tests/legacy-defaults.js` lists them, and cases about one element pin them back off so they keep testing it.
 - Text from stdin, the transcript, git, or config is untrusted terminal input. Sanitize it (`utils/sanitize.ts`) before it's printed.
 - Rendering is pure: the clock is sampled once by `hud.mjs` and terminal width once in `renderLines`.
 - `tests/golden.test.js` pins end-to-end output. An output change must show up as a reviewed diff to `tests/golden/expected.txt`.

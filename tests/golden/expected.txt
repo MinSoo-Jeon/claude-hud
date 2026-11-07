@@ -1,95 +1,246 @@
 ### default/typical
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/rich
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5 ◑ high]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/minimal
 \e[0m\e[36m[Opus]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
 \e[0m\e[2mContext\e[0m \e[32m\e[2m░░░░░░░░░░\e[0m \e[32m0%\e[0m
 
 ### default/apiUser
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/contextWarning
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[33m████████\e[2m░░\e[0m \e[33m75% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/contextCritical
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[31m█████████\e[2m░\e[0m \e[31m92% (184k/200k)\e[0m\e[2m (in: 12k, cache: 172k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/nullContext
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m██\e[2m░░░░░░░░\e[0m \e[32m17% (33k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/zeroPercentLiveUsage
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/oneMillion
-\e[0m\e[36m[Opus 5.5 (1M context)]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5 (1M context)]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█\e[2m░░░░░░░░░\e[0m \e[32m9% (90k/1.0M)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/limitReached
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[31m⚠ Limit reached (resets in 30m)\e[0m
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/weeklyHigh
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
-\e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m) | \e[2mWeekly\e[0m \e[95m█████████\e[2m░\e[0m \e[95m85%\e[0m (resets in 1d)
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
+\e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m) | \e[2mWeekly\e[0m \e[95m█████████\e[2m░\e[0m \e[95m85%\e[0m \e[95m▲\e[0m (resets in 1d)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/spendLimit
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/addedDirs
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ \e]8;;file:///work/shared-lib\e\\e[2m+shared-lib\e[0m\e]8;;\e\ \e]8;;file:///work/docs\e\\e[2m+docs\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ \e]8;;file:///work/shared-lib\e\\e[2m+shared-lib\e[0m\e]8;;\e\ \e]8;;file:///work/docs\e\\e[2m+docs\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/movedCwd
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project/src/lib\e\\e[33mlib\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project/src/lib\e\\e[33mmy-project › lib\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/bedrock
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/typical@40
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m
+\e[0m\e[2mTokens 262k (in: 6k, out: 2k, cache: ...\e[0m
 \e[0m\e[2mContext\e[0m \e[32m██\e[2m░░\e[0m \e[32m45% (90k/200k)\e[0m
 \e[0m\e[2mUsage  \e[0m \e[94m█\e[2m░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test ...\e[0m
 
 ### default/typical@60
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m
+\e[0m\e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m███\e[2m░░░\e[0m \e[32m45% (90k/200k)\e[0m
 \e[0m\e[2mUsage  \e[0m \e[94m██\e[2m░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/typical@80
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m███\e[2m░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m██\e[2m░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/typical@120
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/git-clean
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ \e[35mbranch:(\e[0m\e[36mmain\e[0m\e[35m)\e[0m
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ \e[35mbranch:(\e[0m\e[36mmain\e[0m\e[35m)\e[0m │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/git-dirty
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ \e[35mbranch:(\e[0m\e[36mmain*\e[0m [\e[32m+2\e[0m]\e[35m)\e[0m
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ \e[35mbranch:(\e[0m\e[36mmain*\e[0m [\e[32m+2\e[0m]\e[35m)\e[0m │ \e[2m⏱️  1h 0m\e[0m │ \e[2mTokens 262k (in: 6k, out: 2k, cache: 254k)\e[0m
 \e[0m\e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
 \e[0m\e[33m~\e[0m\e]8;;file://<BASE>/home/dev/my-project/tracked.txt\e\\e[33mtracked.txt\e[0m\e]8;;\e\\e[2m(\e[32m+2\e[0m)\e[0m  \e[2m?1\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test suite\e[0m \e[2m(5m 0s)\e[0m
 
 ### default/git-dirty@40
 \e[0m\e[36m[Opus 5.5]\e[0m
 \e[0m\e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ \e[35mbranch:(\e[0m\e[36mmain*\e[0m [\e[32m+2\e[0m]\e[35m)\e[0m
+\e[0m\e[2m⏱️  1h 0m\e[0m
+\e[0m\e[2mTokens 262k (in: 6k, out: 2k, cache: ...\e[0m
 \e[0m\e[2mContext\e[0m \e[32m██\e[2m░░\e[0m \e[32m45% (90k/200k)\e[0m
 \e[0m\e[2mUsage  \e[0m \e[94m█\e[2m░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test ...\e[0m
 
 ### option/contextValue=tokens
 \e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
@@ -629,18 +780,43 @@
 
 ### default/typical@30
 \e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\
+\e[0m\e[2m⏱️  1h 0m\e[0m
+\e[0m\e[2mTokens 262k (in: 6k, out: 2...\e[0m
 \e[0m\e[2mContext\e[0m \e[32m██\e[2m░░\e[0m \e[32m45% (90k/200k)\e[0m
 \e[0m\e[2mUsage  \e[0m \e[94m█\e[2m░░░\e[0m \e[94m25%\e[0m (resets in...\e[0m
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the ...\e[0m
 
 ### default/cjk-path@40
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE\e\\e[33m我的项目\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE\e\\e[33m我的项目\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m
+\e[0m\e[2mTokens 262k (in: 6k, out: 2k, cache: ...\e[0m
 \e[0m\e[2mContext\e[0m \e[32m██\e[2m░░\e[0m \e[32m45% (90k/200k)\e[0m
 \e[0m\e[2mUsage  \e[0m \e[94m█\e[2m░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2mCompactions: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test ...\e[0m
 
 ### default/cjk-path+zh-Hans@40
-\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE\e\\e[33m我的项目\e[0m\e]8;;\e\
+\e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE\e\\e[33m我的项目\e[0m\e]8;;\e\ │ \e[2m⏱️  1h 0m\e[0m
+\e[0m\e[2m词元 262k (输入: 6k, 输出: 2k, 缓存: ...\e[0m
 \e[0m\e[2m上下文\e[0m \e[32m██\e[2m░░\e[0m \e[32m45% (90k/200k)\e[0m
 \e[0m\e[2m用量  \e[0m \e[94m█\e[2m░░░\e[0m \e[94m25%\e[0m (重置剩余 1h 30m)
+\e[0m\e[32m✓\e[0m Skills \e[2m(1)\e[0m: \e[36mfrontend-design\e[0m
+\e[0m\e[32m✓\e[0m MCPs \e[2m(1)\e[0m: \e[36mgithub\e[0m
+\e[0m\e[33m▸\e[0m Fix authentication bug \e[2m(1/3)\e[0m
+\e[0m\e[2m压缩次数: 1\e[0m
+\e[0m\e[31m⚠ github\e[0m
+\e[0m\e[2mAgents: 1 running\e[0m
+\e[0m\e[33m◐\e[0m \e[35mgeneral-purpose\e[0m\e[2m: Run the full test...\e[0m
 
 ### option/oneRow@120
 \e[0m\e[36m[Opus 5.5]\e[0m │ \e]8;;file://<BASE>/home/dev/my-project\e\\e[33mmy-project\e[0m\e]8;;\e\ │ \e[2mContext\e[0m \e[32m█████\e[2m░░░░░\e[0m \e[32m45% (90k/200k)\e[0m │ \e[2mUsage\e[0m \e[94m███\e[2m░░░░░░░\e[0m \e[94m25%\e[0m (resets in 1h 30m)

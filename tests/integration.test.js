@@ -1,3 +1,4 @@
+import { withLegacyDefaults } from "./legacy-defaults.js";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { fileURLToPath } from "node:url";
@@ -365,7 +366,7 @@ async function writeHudConfig(homeDir, config) {
   const fs = await import("node:fs/promises");
   const dir = path.join(homeDir, ".claude", "plugins", "claude-hud");
   await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(path.join(dir, "config.json"), JSON.stringify(config), "utf8");
+  await fs.writeFile(path.join(dir, "config.json"), JSON.stringify(withLegacyDefaults(config)), "utf8");
 }
 
 test("CLI renders line layout 'Added dirs:' on a separate line", async (t) => {
