@@ -4,6 +4,17 @@ All notable changes to Claude HUD will be documented in this file.
 
 ## [Unreleased]
 
+## [0.15.2] - 2026-11-08
+
+### Added
+- The mascot is one of several, picked from the session id so a session keeps its own; a bunny joins the original.
+- `display.agentProgress`: a `N running` header and, per running subagent, an estimated progress and time left, judged against this session's finished subagents of the same type.
+- Environment and agents rows placed last in `elementOrder` stay the last lines.
+
+### Changed
+- Git status reads `branch:(` instead of `git:(`.
+- Beside the mascot, the branch joins the project row, the changes and changed files share one row, and the HUD is cut to the mascot's height.
+
 ## [0.15.1] - 2026-11-03
 
 ### Fixed
