@@ -4,6 +4,11 @@ All notable changes to Claude HUD will be documented in this file.
 
 ## [Unreleased]
 
+## [0.15.7] - 2026-11-08
+
+### Changed
+- Usagi's ears are pink inside, and two stray light pixels in its left wing now match the wing.
+
 ## [0.15.6] - 2026-11-08
 
 ### Changed
