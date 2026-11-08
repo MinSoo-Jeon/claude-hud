@@ -4,6 +4,11 @@ All notable changes to Claude HUD will be documented in this file.
 
 ## [Unreleased]
 
+## [0.15.6] - 2026-11-08
+
+### Changed
+- Usagi's eyebrows sit two pixels further apart.
+
 ## [0.15.5] - 2026-11-08
 
 ### Changed
