@@ -301,16 +301,16 @@ test('the mascot is picked from the session id and stays the same for that sessi
   assert.equal(draw(undefined).length, 10, 'no session id: the first mascot');
   assert.equal(draw('a').length, 10);
   assert.deepEqual(draw('b'), draw('b'), 'the same session keeps its mascot');
-  assert.equal(draw('b').length, 19, 'another session id picks the bunny');
+  assert.equal(draw('b').length, 18, 'another session id picks Usagi');
   assert.notDeepEqual(draw('a')[0], draw('b')[0]);
 });
 
-test('the bunny needs a wider terminal than the first mascot', () => {
+test('Usagi needs a wider terminal than Pairi', () => {
   const config = { display: { mascot: true } };
   const stdin = { session_id: 'b' };
-  assert.equal(lines(ctx({ gitStatus, config, stdin }), 70).length, 19);
-  const narrow = lines(ctx({ gitStatus, config, stdin }), 67);
-  assert.ok(narrow.length < 19, 'below 68 columns the HUD is drawn without the bunny');
+  assert.equal(lines(ctx({ gitStatus, config, stdin }), 90).length, 18);
+  const narrow = lines(ctx({ gitStatus, config, stdin }), 80);
+  assert.ok(narrow.length < 18, 'below 81 columns the HUD is drawn without Usagi');
   assert.equal(lines(ctx({ gitStatus, config }), 63).length, 10, 'the first mascot still fits at 63');
 });
 

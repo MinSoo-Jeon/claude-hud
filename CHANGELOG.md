@@ -4,6 +4,11 @@ All notable changes to Claude HUD will be documented in this file.
 
 ## [Unreleased]
 
+## [0.15.5] - 2026-11-08
+
+### Changed
+- The second mascot is a new yellow character (39x36 pixels, 18 lines, shown from 81 columns). The two mascots are named Pairi and Usagi in the code.
+
 ## [0.15.4] - 2026-11-08
 
 ### Changed

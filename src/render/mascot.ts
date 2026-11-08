@@ -9,7 +9,8 @@ interface Mascot {
   art: string[];
 }
 
-const ORANGE: Mascot = {
+// Charmander-style orange mascot.
+const PAIRI: Mascot = {
   palette: {
     K: [0, 0, 0],
     O: [232, 148, 63],
@@ -43,56 +44,56 @@ const ORANGE: Mascot = {
   ],
 };
 
-const BUNNY: Mascot = {
+const USAGI: Mascot = {
   palette: {
-    K: [60, 30, 25],
-    T: [253, 246, 200],
-    P: [240, 190, 200],
+    K: [45, 45, 50],
+    T: [250, 238, 175],
+    Y: [245, 215, 105],
+    P: [245, 205, 215],
     W: [255, 255, 255],
   },
-  // 26 columns x 37 rows
+  // 39 columns x 36 rows
   art: [
-    '.........KK.....KK........',
-    '........KPTK...KTPK.......',
-    '........KPPTK.KTPPK.......',
-    '........KPPTK.KTPPK.......',
-    '........KPPTK.KTPPK.......',
-    '........KPPTK.KTPPK.......',
-    '........KPPTK.KTPPK.......',
-    '........KPPTK.KTPPK.......',
-    '.........KPTK.KTPK........',
-    '.........KTTK.KTTK........',
-    '......KKTTTTKKKTTTTKK.....',
-    '....KKTTTTTTTTTTTTTTTK....',
-    '...KTTTTKKTTTTTTKKTTTTK...',
-    '..KTTTTKTTTTTTTTTTKTTTTK..',
-    '.KTTTTKTTTTTTTTTTTTKTTTTK.',
-    '.KTTTKTTTTTTTTTTTTTTKTTTK.',
-    'KTTTTKTTTTTTTTTTTTTTKTTTTK',
-    'KTTTTTTTKKTTTTTTKKTTTTTTTK',
-    'KTTTTTTKKWKTTTTKKWKTTTTTTK',
-    'KTTTTTTKWKKTTTTKWKKTTTTTTK',
-    'KTTTPPPTKKTTTTTTKKTPPPTTTK',
-    'KTTPKPKPTTTTTKTTTTPKPKPTTK',
-    'KTTPKPKPTTTKTKTKTTPKPKPTTK',
-    'KTTTPPPTTTTTKTKTTTTPPPTTTK',
-    '.KTTTTTTTTTTTTTTTTTTTTTTK.',
-    '..KTTTTTTTTTKKTTTTTTTTTK..',
-    '...KKTTTTTTTTTTTTTTTTTKK..',
-    '...KTTTTTTTTTTTTTTTTTTTK..',
-    '...KTKTTTTTTTTTTTTTTTKTK..',
-    '...KTKTTTTTTTTTTTTTTTKTK..',
-    '....KTTTTTTTTTTTTTTTTKK...',
-    '.....KTTTTTTTTTTTTTTTK....',
-    '.....KTTTTTTTTTTTTTTTK....',
-    '.....KTTTTTTTTTTTTTTTK....',
-    '.....KTKKKTTTTTTTKKKTK....',
-    '.....KTK..KKKKKKK..KTK....',
-    '......K.............K.....',
+    '.................KK.KK.................',
+    '................KTTKTTK................',
+    '................KTTKTTK................',
+    '.........KKKK..KTTTKTTTK..KKKK.........',
+    '.......KKYYYYKKKTTTKTTTKKKYYYYKK.......',
+    '.....KKYYYYYYYYKTTTKTTTKYYYYYYYYKK.....',
+    '....KTYYYYYYYYYKTTTKTTTKYYYYYYYYYYK....',
+    '...KYYYYYYYYYYYKTTTKTTTKYYYYYYYYYYYK...',
+    '..KYYYYYYYYYYYYKTTTKTTTKYYYYYYYYYYYYK..',
+    '..KYYYYYYYYYYYYKTTTKTTTKYYYYYYYYYYYYK..',
+    '.KYYYYYYYYYYKKKTTTTTTTTTKKKYYYYYYYYYYK.',
+    '.KYYYYYYYYKKTTTTTTTTTTTTTTTKKYYYYYYYYK.',
+    'KYYYYYYYYKTTTTTTTTTTTTTTTTTTTKYYYYYYYYK',
+    'KYYYYYYYKTTTTTTKKTTTTTKKTTTTTTKYYYYYYYK',
+    'KYYYYYYKTTTTTTKTTTTTTTTTKTTTTTTKYYYYYYK',
+    'KYYYYYKTTTTTTKTTTTTTTTTTTKTTTTTTKYYYYYK',
+    'KYYYYYKTTTTTTKTTTTTTTTTTTKTTTTTTKYYYYYK',
+    'KYYYYKTTTTTTTTTTTTTTTTTTTTTTTTTTTKYYYYK',
+    'KYYYYKTTTTTTTTKKTTTTTTTKKTTTTTTTTKYYYYK',
+    'KYYYYKTTTTTTTKWWKTTTTTKWWKTTTTTTTKYYYYK',
+    '.KYYYKTTPPPPTKKKKTTTTTKKKKTPPPPTTKYYYK.',
+    '.KYYYKTPPKPKPTKKTTTTTTTKKTPKPKPPTKYYYK.',
+    '..KYYKTPKPKPPTTTTKTKTKTTTTPPKPKPTKYYK..',
+    '..KYYKTTPPPPTTTTTTKPKTTTTTTPPPPTTKYYK..',
+    '...KTYKTTTTTTTTTTTKPKTTTTTTTTTTTKYYK...',
+    '...KYYKTTTTTTTTTTTTKTTTTTTTTTTTTKYYK...',
+    '....KYYKTTTTTTTTTTTTTTTTTTTTTTTKYYK....',
+    '.....KYYKTTTTTTTTTTTTTTTTTTTTTKYYK.....',
+    '......KYYKTTTTTTTTTTTTTTTTTTTKYYK......',
+    '.......KKTTTTTTTTTTTTTTTTTTTTTKK.......',
+    '........KTTKTTTTTTTTTTTTTTTKTTK........',
+    '.........KKKTTTTTTTTTTTTTTTKKK.........',
+    '............KKTTTTTTTTTTTKK............',
+    '..............KKTTTTTTTKK..............',
+    '................KKTTTKK................',
+    '..................KKK..................',
   ],
 };
 
-const MASCOTS: Mascot[] = [ORANGE, BUNNY];
+const MASCOTS: Mascot[] = [PAIRI, USAGI];
 
 export const MASCOT_GAP = 2;
 // Narrower terminals drop the mascot rather than squeeze the HUD beside it.
